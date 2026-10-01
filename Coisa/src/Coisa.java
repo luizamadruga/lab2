@@ -2,13 +2,13 @@ package lab2;
 
 public class Coisa {
     public static void main(String[] args) {
-        registrarDescanso();
-        System.out.println("-----");
-        registrarTempoOnline();
-        System.out.println("-----");
-        controlarDisciplina();
-        System.out.println("-----");
-        registrarResumos();
+        //registrarDescanso();
+        //System.out.println("-----");
+        //registrarTempoOnline();
+        //System.out.println("-----");
+        //controlarDisciplina();
+        //System.out.println("-----");
+        //registrarResumos();
     }
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();

@@ -5,11 +5,12 @@ public class RegistroTempoOnline {
 
     public RegistroTempoOnline(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
+        this.tempoEsperado = 120;
     }
 
-    public RegistroTempoOnline(String nomeDisciplina, int tempoInvestidoOnline) {
+    public RegistroTempoOnline(String nomeDisciplina, int tempoEsperado) {
         this.nomeDisciplina = nomeDisciplina;
-        this.tempoInvestidoOnline = tempoInvestidoOnline;
+        this.tempoEsperado = tempoEsperado;
     }
 
     public void adicionaTempoOnline(int tempo) {

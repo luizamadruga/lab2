@@ -7,11 +7,11 @@ public class Descanso {
         this.numeroSemanas = 1;
     }
 
-    public void defineHorasDeDescanso(int valor) {
+    public void defineHorasDescanso(int valor) {
         this.horasDeDescanso = valor;
     }
 
-    public void defineNumeroSemana(int valor) {
+    public void defineNumeroSemanas(int valor) {
         this.numeroSemanas = valor;
     }
 

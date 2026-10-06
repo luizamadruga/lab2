@@ -3,10 +3,13 @@ import java.util.Arrays;
 public class Disciplina {
     private String nomeDisciplina;
     private int horasDeEstudo;
-    private double[] notas;
+    private Double[] notas;
 
     public Disciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
+        this.horasDeEstudo = 0;
+        this.notas = new Double[4];
+        Arrays.fill(this.notas, 0.0);
     }
 
     public void cadastraHoras(int horas) {

@@ -10,6 +10,7 @@ public class RegistroResumos {
         this.tema = new String[numeroMaxDeResumos];
         this.itema = 0;
         this.conteudo = new String[numeroMaxDeResumos];
+        this.numeroDeResumos = 0;
     }
 
     public void adiciona(String tema, String conteudo) {
@@ -36,7 +37,27 @@ public class RegistroResumos {
         return resumos;
     }
 
-    public String imprimeResumos() {
+    public int conta() {
+        return numeroDeResumos;
+    }
 
+    public String imprimeResumos() {
+        String temp = ("- " + numeroDeResumos + " resumo(s) cadastrado(s)" + "\n" + "- ");
+        for (int i = 0; i < numeroDeResumos; i++) {
+            temp += this.tema[i];
+            if (i != numeroDeResumos-1) {
+                temp += " | ";
+            }
+        }
+        return temp;
+    }
+
+    public boolean temResumo(String tema) {
+        for (int i = 0; i < numeroDeResumos; i++) {
+            if (this.tema[i].equals(tema)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

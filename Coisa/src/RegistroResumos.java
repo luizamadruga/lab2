@@ -5,6 +5,7 @@ public class RegistroResumos {
     private int numeroDeResumos;
 
     public RegistroResumos(int numeroMaxDeResumos) {
+        /* construtor da classe registro resumos */
         this.numeroMaxDeResumos = numeroMaxDeResumos;
         this.resumos = new Resumo[numeroMaxDeResumos];
         this.iresumo = 0;
@@ -12,6 +13,9 @@ public class RegistroResumos {
     }
 
     public void adiciona(String tema, String conteudo) {
+        /* adiciona um resumo novo ao registro, se a quantidade máxima
+        * de resumos tiver sido atingida, ele substitui o resumo mais antigo
+        * */
         Resumo resumo = new Resumo(tema, conteudo);
         this.resumos[this.iresumo] = resumo;
         this.iresumo++;
@@ -24,6 +28,9 @@ public class RegistroResumos {
     }
 
     public String[] pegaResumos() {
+        /* retorna um array de string com cada string sendo um resumo
+        * representado pelo formato "Tema: Conteúdo"
+        * */
         String[] ress = new String[numeroDeResumos];
         int ires = 0;
         for (int i = 0; i < numeroDeResumos; i++) {
@@ -36,10 +43,18 @@ public class RegistroResumos {
     }
 
     public int conta() {
+        /**
+         * retirna a quantidade de resumos salvos
+         */
         return numeroDeResumos;
     }
 
     public String imprimeResumos() {
+        /**
+         * retorna uma string com o nome de todos os temas de resumos salvos no formato
+         * - X resumo(s) cadastrado(s)
+         * - Tema1 | Tema2 | Tema3
+         */
         String temp = ("- " + numeroDeResumos + " resumo(s) cadastrado(s)" + "\n" + "- ");
         for (int i = 0; i < numeroDeResumos; i++) {
             temp += resumos[i].getTema();
@@ -51,6 +66,12 @@ public class RegistroResumos {
     }
 
     public boolean temResumo(String tema) {
+        /**
+         * retorna verdadeiro se já houver algum resumo salvo com o mesmo
+         * tema e negativo caso contrário
+         *
+         * @param tema o tema a ser testado
+         */
         for (int i = 0; i < numeroDeResumos; i++) {
             if (resumos[i].getTema().equals(tema)) {
                 return true;
@@ -60,6 +81,12 @@ public class RegistroResumos {
     }
 
     public String[] buscaResumos(String chaveDeBusca) {
+        /**
+         * retorna um array de string com o tema de todos os resumos
+         * que contém a palavra chave da busca
+         *
+         * @param chaveDeBusca a palavra chave da busca
+         */
         String[] temp = new String[numeroDeResumos];
         int t = 0;
         for (int i = 0; i < numeroDeResumos; i++) {

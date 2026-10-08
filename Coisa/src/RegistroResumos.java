@@ -1,24 +1,22 @@
 public class RegistroResumos {
-    private String[] tema;
-    private String[] conteudo;
-    private int itema;
+    private Resumo[] resumos;
+    private int iresumo;
     private int numeroMaxDeResumos;
     private int numeroDeResumos;
 
     public RegistroResumos(int numeroMaxDeResumos) {
         this.numeroMaxDeResumos = numeroMaxDeResumos;
-        this.tema = new String[numeroMaxDeResumos];
-        this.itema = 0;
-        this.conteudo = new String[numeroMaxDeResumos];
+        this.resumos = new Resumo[numeroMaxDeResumos];
+        this.iresumo = 0;
         this.numeroDeResumos = 0;
     }
 
     public void adiciona(String tema, String conteudo) {
-        this.tema[this.itema] = tema;
-        this.conteudo[this.itema] = conteudo;
-        this.itema++;
-        if (this.itema == numeroMaxDeResumos) {
-            this.itema = 0;
+        Resumo resumo = new Resumo(tema, conteudo);
+        this.resumos[this.iresumo] = resumo;
+        this.iresumo++;
+        if (this.iresumo == numeroMaxDeResumos) {
+            this.iresumo = 0;
         }
         if (this.numeroDeResumos < numeroMaxDeResumos) {
             this.numeroDeResumos++;
@@ -26,15 +24,15 @@ public class RegistroResumos {
     }
 
     public String[] pegaResumos() {
-        String[] resumos = new String[numeroDeResumos];
-        int iresumo = 0;
+        String[] ress = new String[numeroDeResumos];
+        int ires = 0;
         for (int i = 0; i < numeroDeResumos; i++) {
-            if (tema[i] != null) {
-                resumos[iresumo] = this.tema[i] + ": " + this.conteudo[i];
-                iresumo++;
+            if (resumos[i] != null) {
+                ress[ires] = resumos[i].getTema() + ": " + resumos[i].getConteudo();
+                ires++;
             }
         }
-        return resumos;
+        return ress;
     }
 
     public int conta() {
@@ -44,7 +42,7 @@ public class RegistroResumos {
     public String imprimeResumos() {
         String temp = ("- " + numeroDeResumos + " resumo(s) cadastrado(s)" + "\n" + "- ");
         for (int i = 0; i < numeroDeResumos; i++) {
-            temp += this.tema[i];
+            temp += resumos[i].getTema();
             if (i != numeroDeResumos-1) {
                 temp += " | ";
             }
@@ -54,10 +52,28 @@ public class RegistroResumos {
 
     public boolean temResumo(String tema) {
         for (int i = 0; i < numeroDeResumos; i++) {
-            if (this.tema[i].equals(tema)) {
+            if (resumos[i].getTema().equals(tema)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public String[] buscaResumos(String chaveDeBusca) {
+        String[] temp = new String[numeroDeResumos];
+        int t = 0;
+        for (int i = 0; i < numeroDeResumos; i++) {
+            if (resumos[i].contemChave(chaveDeBusca)) {
+                temp[i] = resumos[i].getTema();
+                t++;
+            }
+        }
+        String[] ress = new String[t];
+        for (int j = 0; j < t; j++) {
+            if (temp[j] != null) {
+                ress[j] = temp[j];
+            }
+        }
+        return ress;
     }
 }

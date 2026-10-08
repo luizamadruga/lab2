@@ -10,7 +10,9 @@ public class Descanso {
     public void defineHorasDescanso(int valor) {
         this.horasDeDescanso = valor;
     }
-
+    /*
+    No método defineNumerosSemanas(int valor) eu mudaria o nome do parametro para um nome mais intuitivo , exemplo: int semanas , int semana entre outos.
+    */
     public void defineNumeroSemanas(int valor) {
         this.numeroSemanas = valor;
     }
@@ -18,6 +20,6 @@ public class Descanso {
     public String getStatusGeral() {
         if (horasDeDescanso / numeroSemanas >= 26) {
             return "descansado";
-        } else {return "cansado";}
+        } else {return "cansado";}  /* eu quebraria uma linha para melhorar a legibilidade */
     }
 }

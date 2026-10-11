@@ -5,7 +5,11 @@ public class RegistroResumos {
     private int numeroDeResumos;
 
     public RegistroResumos(int numeroMaxDeResumos) {
-        /* construtor da classe registro resumos */
+        /**
+         * construtor da classe registro resumos
+         *
+         * @param numeroMaxDeResumos o número máximo de resumos
+         */
         this.numeroMaxDeResumos = numeroMaxDeResumos;
         this.resumos = new Resumo[numeroMaxDeResumos];
         this.iresumo = 0;
@@ -13,9 +17,14 @@ public class RegistroResumos {
     }
 
     public void adiciona(String tema, String conteudo) {
-        /* adiciona um resumo novo ao registro, se a quantidade máxima
-        * de resumos tiver sido atingida, ele substitui o resumo mais antigo
-        * */
+        /**
+         * adiciona um resumo novo ao registro, se a quantidade máxima
+         * de resumos tiver sido atingida ele substitui o resumo mais antigo
+         *
+         * @param tema o tema do novo resumo
+         *
+         * @param conteudo o conteudo do novo resumo
+         */
         Resumo resumo = new Resumo(tema, conteudo);
         this.resumos[this.iresumo] = resumo;
         this.iresumo++;
@@ -28,9 +37,10 @@ public class RegistroResumos {
     }
 
     public String[] pegaResumos() {
-        /* retorna um array de string com cada string sendo um resumo
-        * representado pelo formato "Tema: Conteúdo"
-        * */
+        /**
+         * retorna um array de string com cada string sendo um resumo
+         * representado pelo formato "Tema: Conteúdo"
+         */
         String[] ress = new String[numeroDeResumos];
         int ires = 0;
         for (int i = 0; i < numeroDeResumos; i++) {
@@ -44,7 +54,7 @@ public class RegistroResumos {
 
     public int conta() {
         /**
-         * retirna a quantidade de resumos salvos
+         * retorna a quantidade de resumos salvos
          */
         return numeroDeResumos;
     }
